@@ -47,10 +47,12 @@ $$
 
 ---
 
-<!-- _backgroundImage: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1600&q=80') -->
-# 🌄 Background Image Example  
+<!-- _backgroundImage: url('https://picsum.photos/1600/900') -->
+<!-- _backgroundSize: cover -->
+<!-- _class: lead -->
+# 🌄 Background Image Slide  
 
-This slide uses a full-size **Unsplash background image**.  
+This slide uses a **real background image** from [Picsum](https://picsum.photos).  
 
 ---
 
