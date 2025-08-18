@@ -3,68 +3,55 @@ marp: true
 title: Product Documentation Presentation
 paginate: true
 theme: custom
-class: lead
 author: 24f1001859@ds.study.iitm.ac.in
+style: |
+  /* Custom theme overrides */
+  section { font-family: "Segoe UI", sans-serif; }
+  h1, h2, h3 { color: #0a84ff; }
+  footer { font-size: 0.7em; color: #555; }
 ---
 
-<!-- _class: lead -->
-# 📘 Product Documentation  
-### With Marp + GitHub Version Control  
+#  Product Documentation  
 **Author:** 24f1001859@ds.study.iitm.ac.in  
 
 ---
 
-<!-- theme override -->
-<style>
-section {
-  font-family: "Segoe UI", sans-serif;
-}
-h1, h2, h3 {
-  color: #0a84ff;
-}
-footer {
-  color: #555;
-  font-size: 0.7em;
-}
-</style>
-
 # Why Marp?  
 
-- **Markdown-based** → easy to version control  
-- **Exportable** → PDF, PPTX, HTML with one command  
-- **Customizable** → themes, directives, styles  
+- **Markdown-based** → ideal for version control.  
+- **Exportable** → generate PDF, PPTX, HTML easily.  
+- **Customizable** → themes, directives, CSS.
 
 ---
 
 # Algorithmic Complexity  
 
-Consider **merge sort**:
+Typical example (**merge sort**):
 
 $$
-T(n) = 2T\left(\frac{n}{2}\right) + O(n) \\\\
-\\implies T(n) = O(n \\log n)
+T(n) = 2T\left(\frac{n}{2}\right) + O(n) \\
+\implies T(n) = O(n \log n)
 $$
 
 ---
 
-<!-- _backgroundImage: url('https://picsum.photos/1600/900') -->
-<!-- _backgroundSize: cover -->
-<!-- _class: lead -->
-# 🌄 Background Image Slide  
+![bg cover](https://raw.githubusercontent.com/marp-team/marp-core/master/logo.svg)
 
-This slide uses a **real background image** from [Picsum](https://picsum.photos).  
+# ​ Background Image Slide  
+This slide uses Marp's native syntax for a proper background image.
 
 ---
 
 # Custom Styling with Directives  
 
-- Use `<!-- _class: lead -->` for hero slides  
-- `<!-- _backgroundColor: #f0f0f0 -->` for section dividers  
-- Mix in custom CSS in frontmatter or inline `<style>`  
+- `paginate: true` for page numbers.  
+- Inline CSS via `style:` in frontmatter.  
+- Use `![bg ...](...)` for slide backgrounds.  
+- Use math via LaTeX in $$...$$ blocks.
 
 ---
 
 # Contact  
-
 📧 24f1001859@ds.study.iitm.ac.in  
-Slides built with **Marp** 📝  
+Slides powered by **Marp Markdown**
+
