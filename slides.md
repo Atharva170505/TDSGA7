@@ -1,15 +1,11 @@
 ---
 marp: true
 title: Product Documentation Presentation
-paginate: true
 theme: custom
 author: 24f1001859@ds.study.iitm.ac.in
-style: |
-  /* Custom theme overrides */
-  section { font-family: "Segoe UI", sans-serif; }
-  h1, h2, h3 { color: #0a84ff; }
-  footer { font-size: 0.7em; color: #555; }
 ---
+
+<!-- _paginate: true -->
 
 # Product Documentation  
 **Author:** 24f1001859@ds.study.iitm.ac.in  
@@ -18,9 +14,9 @@ style: |
 
 # Why Marp?  
 
-- **Markdown-based** → ideal for version control.  
-- **Exportable** → generate PDF, PPTX, HTML easily.  
-- **Customizable** → themes, directives, CSS.
+- **Markdown-based** → ideal for version control  
+- **Exportable** → PDF, PPTX, HTML easily  
+- **Customizable** → themes, directives, CSS  
 
 <!-- _footer: "Confidential — For internal stakeholders only" -->
 
@@ -37,20 +33,11 @@ $$
 
 ---
 
-![bg cover](https://raw.githubusercontent.com/marp-team/marp-core/master/logo.svg)
+![bg cover](https://th.bing.com/th/id/R.470ad512a190d4680aa53e948e3650d4?rik=S1no9QqoUvS7Wg&riu=http%3a%2f%2fengageindia.ca%2fwp-content%2fuploads%2f2017%2f01%2fIITM-500x500.png&ehk=XDLFB8lX1%2bMgTKZeQx%2fGvMUS4hFyMcSzggOSPHeURpM%3d&risl=&pid=ImgRaw&r=0)
 
 # 🌄 Background Image Slide  
-This slide uses Marp's native syntax for a proper background image.
 
----
-
-# Custom Styling with Directives  
-
-- `paginate: true` for page numbers.  
-- Inline CSS via `style:` in frontmatter.  
-- Use `![bg ...](...)` for slide backgrounds.  
-- Use math via LaTeX in $$...$$ blocks.  
-- Example directive:  
+This slide uses a background image.  
 
 <!-- _class: lead -->
 
