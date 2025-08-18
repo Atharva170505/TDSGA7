@@ -47,10 +47,10 @@ $$
 
 ---
 
-<!-- _backgroundImage: url('https://marp.app/assets/hero-background.jpg') -->
-# Background Image Example  
+<!-- _backgroundImage: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1600&q=80') -->
+# 🌄 Background Image Example  
 
-This slide demonstrates how to set a **background image** with Marp.  
+This slide uses a full-size **Unsplash background image**.  
 
 ---
 
