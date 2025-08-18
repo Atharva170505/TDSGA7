@@ -11,7 +11,7 @@ style: |
   footer { font-size: 0.7em; color: #555; }
 ---
 
-#  Product Documentation  
+# Product Documentation  
 **Author:** 24f1001859@ds.study.iitm.ac.in  
 
 ---
@@ -21,6 +21,8 @@ style: |
 - **Markdown-based** → ideal for version control.  
 - **Exportable** → generate PDF, PPTX, HTML easily.  
 - **Customizable** → themes, directives, CSS.
+
+<!-- _footer: "Confidential — For internal stakeholders only" -->
 
 ---
 
@@ -37,7 +39,7 @@ $$
 
 ![bg cover](https://raw.githubusercontent.com/marp-team/marp-core/master/logo.svg)
 
-# ​ Background Image Slide  
+# 🌄 Background Image Slide  
 This slide uses Marp's native syntax for a proper background image.
 
 ---
@@ -47,11 +49,13 @@ This slide uses Marp's native syntax for a proper background image.
 - `paginate: true` for page numbers.  
 - Inline CSS via `style:` in frontmatter.  
 - Use `![bg ...](...)` for slide backgrounds.  
-- Use math via LaTeX in $$...$$ blocks.
+- Use math via LaTeX in $$...$$ blocks.  
+- Example directive:  
+
+<!-- _class: lead -->
 
 ---
 
 # Contact  
 📧 24f1001859@ds.study.iitm.ac.in  
 Slides powered by **Marp Markdown**
-
