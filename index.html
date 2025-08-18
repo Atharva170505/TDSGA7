@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Q{3} Earnings — Interactive RevealJS Deck</title>
+  <meta name="description" content="Interactive quarterly earnings presentation with markdown, fragments, code highlighting, math, and speaker notes." />
+
+  <!-- Reveal.js core CSS & Theme (via CDN for GitHub Pages) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" id="theme" />
+
+  <!-- Code highlight styles (uses highlight.js themes bundled with Reveal) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/monokai.css" />
+
+  <style>
+    /* Subtle brand polish */
+    .reveal .slides section .subtitle { font-size: 0.9em; opacity: 0.8; }
+    .reveal .brand-pill { display:inline-block; padding: .25em .6em; border-radius:999px; border:1px solid rgba(255,255,255,.25); font-size:.55em; letter-spacing:.06em; }
+    .reveal .kpi { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+    .reveal .kpi .card { padding:16px; border-radius:16px; background:rgba(255,255,255,.06); box-shadow:0 4px 20px rgba(0,0,0,.25); }
+    .reveal .kpi .value { font-size:2.2rem; font-weight:800; }
+    .reveal .kpi .label { opacity:.8; font-size:.9rem; }
+    .reveal .footnote { font-size:.55em; opacity:.7; }
+    .reveal pre code { font-size: 0.8em; line-height: 1.35; }
+    /* Print-friendly tweaks */
+    @media print { .reveal .brand-pill { border-color:#333 } }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title Slide -->
+      <section>
+        <h2>Quarterly Earnings Report</h2>
+        <p class="subtitle">Modern interactive briefing with live math, code, and notes</p>
+        <p><span class="brand-pill">Financial Technology Consulting</span></p>
+        <p class="subtitle">Prepared by: 24f1001859@ds.study.iitm.ac.in</p>
+        <aside class="notes">
+          Welcome the audience. Mention that this deck is built with RevealJS and hosted on GitHub Pages for easy sharing and version control.
+          Hit <strong>S</strong> to open speaker view with notes, time, and next slide preview.
+        </aside>
+      </section>
+
+      <!-- KPI Overview with fragments (animated reveal) -->
+      <section>
+        <h3>Executive KPI Overview</h3>
+        <div class="kpi">
+          <div class="card fragment fade-up">
+            <div class="value">₹ 3,420 Cr</div>
+            <div class="label">Revenue (+12% YoY)</div>
+          </div>
+          <div class="card fragment fade-up" data-fragment-index="1">
+            <div class="value">₹ 612 Cr</div>
+            <div class="label">Operating Income (+80 bps margin)</div>
+          </div>
+          <div class="card fragment fade-up" data-fragment-index="2">
+            <div class="value">₹ 10.8</div>
+            <div class="label">EPS (Diluted)</div>
+          </div>
+        </div>
+        <p class="footnote fragment">Figures illustrative; replace with audited results.</p>
+        <aside class="notes">
+          Step through each KPI with fragments. Emphasize revenue quality, margin expansion drivers, and EPS bridge.
+        </aside>
+      </section>
+
+      <!-- Markdown slide: satisfies the Markdown requirement -->
+      <section data-markdown>
+        <textarea data-template>
+### Segment Performance (Markdown)
+
+- **Retail Banking:** Deposit growth **+9% QoQ**, loan book **+6% QoQ**
+- **Corporate Banking:** Strong fee income; trade finance volumes at a 6-quarter high
+- **Wealth & AMC:** AUM up **+14% YoY**; SIP net adds accelerated
+- **Payments:** TPV grew **+22% YoY**; take-rate stable
+
+> Analyst takeaway: Mix shift toward fee-led income supports margin resilience.
+
+*Prepared by: 24f1001859@ds.study.iitm.ac.in*
+
+<!-- Speaker note for this Markdown slide -->
+Notes:
+- Call out cross-sell ratios and digital adoption.
+- Mention any one-offs: investment MTM, credit costs, or tax items.
+        </textarea>
+      </section>
+
+      <!-- Math slide: financial formulas using MathJax via the Reveal Math plugin -->
+      <section>
+        <h3>Key Financial Formulas</h3>
+        <p class="fragment">Net Present Value (NPV): \(\; \mathrm{NPV} = \sum_{t=1}^{T} \frac{CF_t}{(1+r)^t} - C_0 \;\)</p>
+        <p class="fragment" data-fragment-index="1">Compound Annual Growth Rate (CAGR): \(\; \mathrm{CAGR} = \left(\frac{V_{\text{end}}}{V_{\text{start}}}\right)^{\tfrac{1}{n}} - 1 \;\)</p>
+        <p class="fragment" data-fragment-index="2">Sharpe Ratio: \(\; S = \frac{E[R_p]-R_f}{\sigma_p} \;\)</p>
+        <aside class="notes">
+          Walk through why discount rate selection matters for NPV, the interpretation of CAGR, and risk-adjusted performance via Sharpe.
+        </aside>
+      </section>
+
+      <!-- Code sample with syntax highlighting -->
+      <section>
+        <h3>Scenario Model Snippet (Python)</h3>
+        <pre><code class="language-python">import numpy as np
+
+# Discounted cash flow (illustrative)
+def npv(rate, cashflows):
+    return sum(cf / ((1 + rate) ** t) for t, cf in enumerate(cashflows, start=1))
+
+rate = 0.11
+cashflows = [420, 510, 590, 640]
+print("NPV:", round(npv(rate, cashflows) - 1000, 2))
+
+# EPS bridge (simplified)
+shares = 185_000_000
+net_income = 2_100_000_000
+print("EPS:", round(net_income / shares, 2))</code></pre>
+        <aside class="notes">
+          Explain how this mirrors your spreadsheet. Invite stakeholders to audit the assumptions in the appendix.
+        </aside>
+      </section>
+
+      <!-- Risk & Controls slide with fragments -->
+      <section>
+        <h3>Risk & Controls</h3>
+        <ul>
+          <li class="fragment">Credit: Stage-3 stable; coverage ratio improved</li>
+          <li class="fragment">Liquidity: LCR &gt; regulatory floors; diversified funding</li>
+          <li class="fragment">Market: Duration within limits; VaR backtesting clean</li>
+          <li class="fragment">Operational: Strengthened access controls; <em>no material incidents</em></li>
+        </ul>
+        <aside class="notes">
+          Keep this crisp. Offer to deep-dive in appendix if questions arise.
+        </aside>
+      </section>
+
+      <!-- Contact & Email slide -->
+      <section>
+        <h3>Contact</h3>
+        <p>Prepared by: <strong>24f1001859@ds.study.iitm.ac.in</strong></p>
+        <p class="subtitle">Slides: GitHub Pages • Tech: RevealJS</p>
+        <aside class="notes">
+          Invite feedback and provide the repository link in the follow-up email.
+        </aside>
+      </section>
+
+      <!-- Appendix: Speaker notes demo and print/export tip -->
+      <section>
+        <h4>Presenter Tips</h4>
+        <ol>
+          <li class="fragment">Press <kbd>S</kbd> for speaker view (notes, timer, next slide).</li>
+          <li class="fragment">Use <kbd>F</kbd> for full-screen; <kbd>Esc</kbd> to overview.</li>
+          <li class="fragment">Export to PDF by appending <code>?print-pdf</code> and printing to PDF.</li>
+        </ol>
+        <aside class="notes">
+          Rehearse with speaker view open. Keep Q&A to 10 minutes. Track time.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js and plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/math/math.js"></script>
+
+  <!-- Initialize Reveal -->
+  <script>
+    // Reveal configuration tailored for stakeholder briefings
+    const deck = new Reveal({
+      hash: true,               // allows deep-linking to slides
+      slideNumber: true,        // show slide numbers
+      transition: 'slide',      // slide/fade/convex/concave/zoom
+      backgroundTransition: 'fade',
+      navigationMode: 'default',
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3 ],
+      // Math plugin config (MathJax v3 via CDN)
+      mathjax3: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+        tex: {
+          inlineMath: [['\\(','\\)']],
+          displayMath: [['$$','$$'], ['\\[','\\]']]
+        }
+      }
+    });
+
+    deck.initialize();
+  </script>
+</body>
+</html>
