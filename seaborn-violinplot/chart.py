@@ -3,41 +3,45 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-# Generate synthetic data for support efficiency
+# Generate synthetic business data (Support efficiency example)
 np.random.seed(42)
-departments = ['Sales', 'Tech Support', 'HR', 'Finance']
-data = {
-    'Department': np.repeat(departments, 100),
-    'Resolution_Time': np.concatenate([
-        np.random.normal(loc=30, scale=5, size=100),   # Sales
-        np.random.normal(loc=45, scale=10, size=100),  # Tech Support
-        np.random.normal(loc=25, scale=4, size=100),   # HR
-        np.random.normal(loc=35, scale=6, size=100)    # Finance
-    ])
-}
+departments = ['IT Support', 'Customer Care', 'Tech Support']
+efficiency = []
 
-df = pd.DataFrame(data)
+for dept in departments:
+    if dept == 'IT Support':
+        data = np.random.normal(loc=70, scale=10, size=100)
+    elif dept == 'Customer Care':
+        data = np.random.normal(loc=60, scale=15, size=100)
+    else:
+        data = np.random.normal(loc=75, scale=8, size=100)
+    efficiency.extend(zip([dept]*100, data))
+
+# Create DataFrame
+df = pd.DataFrame(efficiency, columns=['Department', 'Efficiency'])
 
 # Professional styling
 sns.set_style("whitegrid")
 sns.set_context("talk")
 
-plt.figure(figsize=(8, 8))  # 8x8 inches, with dpi=64 => 512x512 pixels
+# Create figure with exact 512x512 pixels
+plt.figure(figsize=(8, 8), dpi=64)
 
-# Create violinplot
+# Violin plot with proper hue handling
 ax = sns.violinplot(
     x="Department",
-    y="Resolution_Time",
+    y="Efficiency",
     data=df,
+    hue="Department",          # Apply palette by hue
     palette="Set2",
-    inner="quartile"
+    legend=False               # Avoid duplicate legend
 )
 
 # Titles and labels
-ax.set_title("Support Resolution Time by Department", fontsize=16, weight="bold")
+ax.set_title("Support Department Efficiency Distribution", fontsize=16, pad=15)
 ax.set_xlabel("Department", fontsize=12)
-ax.set_ylabel("Resolution Time (minutes)", fontsize=12)
+ax.set_ylabel("Efficiency Score", fontsize=12)
 
-# Save chart as 512x512 PNG
-plt.savefig("chart.png", dpi=64, bbox_inches="tight")
+# Save chart exactly 512x512
+plt.savefig("chart.png", dpi=64)
 plt.close()
