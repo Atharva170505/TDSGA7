@@ -2,46 +2,58 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+from PIL import Image
+import io
 
-# Generate synthetic business data (Support efficiency example)
 np.random.seed(42)
-departments = ['IT Support', 'Customer Care', 'Tech Support']
-efficiency = []
 
-for dept in departments:
-    if dept == 'IT Support':
-        data = np.random.normal(loc=70, scale=10, size=100)
-    elif dept == 'Customer Care':
-        data = np.random.normal(loc=60, scale=15, size=100)
-    else:
-        data = np.random.normal(loc=75, scale=8, size=100)
-    efficiency.extend(zip([dept]*100, data))
+# -----------------------------
+# Synthetic Data
+# -----------------------------
+segments = ['Budget', 'Regular', 'Premium', 'VIP']
+data = []
 
-# Create DataFrame
-df = pd.DataFrame(efficiency, columns=['Department', 'Efficiency'])
+for segment in segments:
+    if segment == 'Budget':
+        amounts = np.random.normal(50, 15, 150)
+    elif segment == 'Regular':
+        amounts = np.random.normal(150, 30, 200)
+    elif segment == 'Premium':
+        amounts = np.random.normal(300, 50, 120)
+    else:  # VIP
+        amounts = np.random.normal(500, 100, 80)
+    amounts = np.clip(amounts, 0, None)
+    data.extend([[segment, amt] for amt in amounts])
 
-# Professional styling
+df = pd.DataFrame(data, columns=['Customer Segment', 'Purchase Amount'])
+
+# -----------------------------
+# Seaborn Style
+# -----------------------------
 sns.set_style("whitegrid")
 sns.set_context("talk")
 
-# Create figure with exact 512x512 pixels
-plt.figure(figsize=(8, 8), dpi=64)
+# -----------------------------
+# Create a larger figure for layout
+# -----------------------------
+fig, ax = plt.subplots(figsize=(8, 8))  # layout space
+sns.boxplot(x='Customer Segment', y='Purchase Amount', data=df, palette='Set2', ax=ax)
 
-# Violin plot with proper hue handling
-ax = sns.violinplot(
-    x="Department",
-    y="Efficiency",
-    data=df,
-    hue="Department",          # Apply palette by hue
-    palette="Set2",
-    legend=False               # Avoid duplicate legend
-)
+ax.set_title("Purchase Amount Distribution by Customer Segment", fontsize=16, weight='bold')
+ax.set_xlabel("Customer Segment", fontsize=12)
+ax.set_ylabel("Purchase Amount ($)", fontsize=12)
 
-# Titles and labels
-ax.set_title("Support Department Efficiency Distribution", fontsize=16, pad=15)
-ax.set_xlabel("Department", fontsize=12)
-ax.set_ylabel("Efficiency Score", fontsize=12)
+plt.tight_layout()  # prevent clipping
 
-# Save chart exactly 512x512
-plt.savefig("chart.png", dpi=64)
-plt.close()
+# -----------------------------
+# Render to PIL image at 512x512 pixels
+# -----------------------------
+buf = io.BytesIO()
+fig.savefig(buf, format='png', dpi=200)  # high dpi to preserve layout
+buf.seek(0)
+img = Image.open(buf)
+img = img.resize((512, 512), Image.LANCZOS)
+img.save('chart.png')
+
+plt.close(fig)
+print("Chart saved as chart.png (exactly 512x512 pixels, text fully visible)")
