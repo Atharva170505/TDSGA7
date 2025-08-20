@@ -1,11 +1,9 @@
+# Regenerate the chart with exact 512x512 dimensions
+
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-
-# -------------------------
-# Generate synthetic dataset
-# -------------------------
 
 np.random.seed(42)
 
@@ -24,19 +22,13 @@ data = {
 
 df = pd.DataFrame(data)
 
-# -------------------------
 # Seaborn Styling
-# -------------------------
-
 sns.set_style("whitegrid")
 sns.set_context("talk")
 palette = sns.color_palette("Set2")
 
-# -------------------------
 # Create Violin Plot
-# -------------------------
-
-plt.figure(figsize=(8, 8))  # Ensures 512x512 pixels with dpi=64
+plt.figure(figsize=(8, 8))  # 8 inches * 64 dpi = 512px
 ax = sns.violinplot(
     x="Channel", 
     y="Response Time (minutes)", 
@@ -50,12 +42,12 @@ ax.set_title("Customer Support Response Time Distribution by Channel", fontsize=
 ax.set_xlabel("Support Channel", fontsize=14)
 ax.set_ylabel("Response Time (minutes)", fontsize=14)
 
-# Rotate x labels for better readability if needed
 plt.xticks(rotation=20)
 
-# -------------------------
-# Save Chart
-# -------------------------
-
-plt.savefig("/mnt/data/chart.png", dpi=64, bbox_inches="tight")
+# Save chart WITHOUT bbox_inches='tight'
+plt.savefig("/mnt/data/chart.png", dpi=64)
 plt.close()
+
+# Verify size again
+from PIL import Image
+Image.open("/mnt/data/chart.png").size
